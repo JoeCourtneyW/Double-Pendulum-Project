@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Double Pendulum</title>
+  <link href='double_pendulum.css' rel='stylesheet' type='text/css'>
+  <link href='base.css' rel='stylesheet' type='text/css'>
+  <script src='jquery.js' type='text/javascript'></script>
+</head>
+
+<body style='margin: 0;max-width:100%;padding-top:0'>
+  <div class='sidebar'>
+    <form id='set_variables_form'>
+      <label for='length1'>Length1:</label>
+      <input id='length1' max='200' min='25' type='range' value='150'>
+      <!-- Add an oninput listener to change while sliding -->
+      <label for='length2'>Length2:</label>
+      <input id='length2' max='200' min='25' type='range' value='150'>
+      <label for='mass1'>Mass1:</label>
+      <input id='mass1' max='50' min='1' type='range' value='10'>
+      <!-- Add an oninput listener to change while sliding -->
+      <label for='mass2'>Mass2:</label>
+      <input id='mass2' max='50' min='1' type='range' value='10'>
+      <label for='Theta1'>Theta 1 (in deg):</label>
+      <input id='Theta1' max='180' min='90' type='range' value='135'>
+      <label for='Theta2'>Theta 2 (in deg):</label>
+      <input id='Theta2' max='180' min='90' type='range' value='135'>
+      <input class='submit-btn' id='start-button' type='button' value='Start'>
+      <input class='submit-btn' id='reset-button' type='button' value='Reset' disabled='true'>
+    </form>
+  </div>
+  <canvas class='phys-canvas' height='700' id='simulation' width='700'></canvas>
+  <script src='pendulum.js' type='text/javascript'></script>
+</body>
+<script>
+  $(function() {
+    //Start the nodejs server here
+  });
+</script>
+
+</html>
