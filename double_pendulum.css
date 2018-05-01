@@ -16,8 +16,11 @@
 
 .sidebar input {
   margin: 10px 0 5px 10px;
-  display: block;
+  display: inline;
   margin-bottom: 10px;
+}
+.sidebar output {
+  display: inline;
 }
 
 .phys-canvas {
@@ -25,7 +28,7 @@
 }
 
 .submit-btn {
-  width: 80%;
+  width: 60%;
   padding: 5px;
   text-align: center;
 }

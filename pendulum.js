@@ -12,8 +12,8 @@ function update(pendSettings) {
   ));
 
   //Derivative of theta 2
-  pendSettings.d2Theta2 = (mu * g * (Math.sin(pendSettings.Theta1) * Math.cos(pendSettings.Theta1 -
-      pendSettings.Theta2) - Math.sin(pendSettings.Theta2)) + (mu * pendSettings.l1 * pendSettings.dTheta1 *
+  pendSettings.d2Theta2 =
+    (mu * g * (Math.sin(pendSettings.Theta1) * Math.cos(pendSettings.Theta1 - pendSettings.Theta2) - Math.sin(pendSettings.Theta2)) + (mu * pendSettings.l1 * pendSettings.dTheta1 *
       pendSettings.dTheta1 + pendSettings.l2 * pendSettings.dTheta2 * pendSettings.dTheta2 *
       Math.cos(pendSettings.Theta1 - pendSettings.Theta2)) * Math.sin(pendSettings.Theta1 - pendSettings.Theta2)) /
     (pendSettings.l2 * (mu - Math.cos(pendSettings.Theta1 - pendSettings.Theta2) * Math.cos(pendSettings.Theta1 - pendSettings.Theta2)));
@@ -144,6 +144,13 @@ function updateSettings() {
   currSimSett.Theta1 = $('#Theta1').val() / 180 * (Math.PI);
   currSimSett.Theta2 = $('#Theta2').val() / 180 * (Math.PI);
 
+  //Update values next to sliders
+  $('#length1Output').val(currSimSett.l1);
+  $('#length2Output').val(currSimSett.l2);
+  $('#mass1Output').val(currSimSett.m1);
+  $('#mass2Output').val(currSimSett.m2);
+  $('#Theta1Output').val(Math.round(currSimSett.Theta1 * 180 / (Math.PI)));
+  $('#Theta2Output').val(Math.round(currSimSett.Theta2 * 180 / (Math.PI)));
 
   myCircle1 = {
     x: origin.x + currSimSett.l1 * Math.sin(currSimSett.Theta1),
@@ -184,6 +191,7 @@ function updateSettings() {
   currSimSett.dTheta2 = 0;
   currSimSett.d2Theta1 = 0;
   currSimSett.d2Theta2 = 0;
+
   //Change the path color to differentiate between sims
   currSimSett.color = getRandomColor();
 }
